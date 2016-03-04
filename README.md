@@ -7,11 +7,9 @@ DoesScience trait handles some of the boilerplate associated with performing exp
 
 class myClass
 {
-  use \thinkspill\DoesScience;
-  
   public function main()
   {
-    $result = $this->oldCreakyFunction();
+    $result = $this->oldCreakyMethod();
   }
   
   // ...
@@ -19,7 +17,7 @@ class myClass
 ```
 
 
-Lets refactor `oldCreakyFunction` by starting from some boilerplate:
+Lets refactor `oldCreakyMethod` by starting from some boilerplate:
 
 
 ```php
