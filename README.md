@@ -59,3 +59,10 @@ class myClass
 }
 ```
 
+The experiment boilerplate code gets copy/pasted into
+the code location that calls the method being refactored,
+and modified to call the correct control and trial methods.
+
+The only call that needs to retain the actual arguments of the
+method under refactor are those in the experimentReport call,
+due to the use of variable arguments everywhere else.
