@@ -1,5 +1,7 @@
 # ScienceBoilerplate
-DoesScience trait handles some of the boilerplate associated with performing experimental code refactoring using Science!
+DoesScience trait handles some of the boilerplate associated with performing experimental code refactoring using the PHP port of [Scientist by Dayle Rees](https://github.com/daylerees/scientist) which is itself inspired by [GitHub's Scientist](http://githubengineering.com/scientist/).
+
+## Example refactoring
 
 ```php
 <?php
