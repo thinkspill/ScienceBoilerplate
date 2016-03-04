@@ -2,7 +2,6 @@
 DoesScience trait handles some of the boilerplate associated with performing experimental code refactoring using Science!
 
 ```php
-
 <?php
 
 class myClass
@@ -21,7 +20,6 @@ Lets refactor `oldCreakyMethod` by starting from some boilerplate:
 
 
 ```php
-
 <?php
 
 class myClass
