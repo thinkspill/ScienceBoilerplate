@@ -73,16 +73,12 @@ trait DoesScience
     private function boilerplate($var)
     {
         /** boilerplate start */
-        $control = function (...$vars) {
+        $this->makeScienceExperiment('Experiment Name', function (...$vars) {
             return call_user_func_array([$this, 'controlMethod'], func_get_args());
-        };
-
-        $trial = function (...$vars) {
-            return call_user_func_array([$this, 'TrialMethod'], func_get_args());
-        };
-
-        $this->makeScienceExperiment('Experiment Name', $control);
-        $this->addExperimentTrial('trial 1', $trial);
+        });
+        $this->addExperimentTrial('trial 1', function (...$vars) {
+            return call_user_func_array([$this, 'trialMethod'], func_get_args());
+        });
 
         ~r($this->experimentReport($var));
         /** boilerplate end */
@@ -130,7 +126,7 @@ trait DoesScience
      * @param $var
      * @return
      */
-    private function TrialMethod($var)
+    private function trialMethod($var)
     {
         return $var;
     }
