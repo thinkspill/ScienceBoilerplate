@@ -64,5 +64,8 @@ the code location that calls the method being refactored,
 and modified to call the correct control and trial methods.
 
 The only call that needs to retain the actual arguments of the
-method under refactor are those in the experimentReport call,
+method under refactor are those in the `experimentReport` call,
 due to the use of variable arguments everywhere else.
+
+The `experimentReport` method will return the results of each 
+experiment and if they matched.
