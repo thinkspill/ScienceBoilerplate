@@ -42,7 +42,7 @@ class myClass
     $this->makeScienceExperiment('Experiment Name', $control);
     $this->addExperimentTrial('trial 1', $trial);
 
-    ~r($this->experimentReport($arg1, $arg2));
+    print_r($this->experimentReport($arg1, $arg2));
     /** boilerplate end */
 
     // $result = $this->oldCreakyFunction($arg1, $arg2);
