@@ -12,30 +12,30 @@ trait DoesScience
     private $experiment;
 
     /**
-     * Initializes a new labratory
+     * Initializes a new labratory.
      *
-     * @param string $experimentName
+     * @param string   $experimentName
      * @param \Closure $control
      */
-    public function makeScienceExperiment($experimentName = 'default experiment', \Closure $control)
+    public function makeScienceExperiment($experimentName, \Closure $control)
     {
-        $lab = new Laboratory;
+        $lab = new Laboratory();
         $this->experiment = $lab->experiment($experimentName)->control($control);
     }
 
     /**
-     * Adds trials to the experiment
+     * Adds trials to the experiment.
      *
-     * @param string $name
+     * @param string   $name
      * @param \Closure $trial
      */
-    public function addExperimentTrial($name = '', \Closure $trial)
+    public function addExperimentTrial($name, \Closure $trial)
     {
         $this->experiment->trial($name, $trial);
     }
 
     /**
-     * Executes the experiment and then runs the reporting
+     * Executes the experiment and then runs the reporting.
      *
      * @param array ...$inputVars
      */
@@ -46,9 +46,10 @@ trait DoesScience
     }
 
     /**
-     * Runs the experiment with no reporting
+     * Runs the experiment with no reporting.
      *
      * @param array ...$vars
+     *
      * @return mixed
      */
     public function runExperiment(...$vars)
@@ -72,7 +73,7 @@ trait DoesScience
      */
     private function boilerplate($var)
     {
-        /** boilerplate start */
+        /* boilerplate start */
         $this->makeScienceExperiment('Experiment Name', function (...$vars) {
             return call_user_func_array([$this, 'controlMethod'], func_get_args());
         });
@@ -81,11 +82,11 @@ trait DoesScience
         });
 
         ~r($this->experimentReport($var));
-        /** boilerplate end */
+        /* boilerplate end */
     }
 
     /**
-     * Retrieve Results from Report object and display a rudimentary report
+     * Retrieve Results from Report object and display a rudimentary report.
      *
      * @param $inputVars
      * @param Report $report
@@ -101,9 +102,9 @@ trait DoesScience
         foreach ($report->getTrials() as $name => $trial) {
             $trialTime = round($trial->getTime() * 10, 5);
             if ($trialTime > $controlTime) {
-                $diff = ($trialTime - $controlTime) . ' slower';
+                $diff = ($trialTime - $controlTime).' slower';
             } else {
-                $diff = ($controlTime - $trialTime) . ' faster';
+                $diff = ($controlTime - $trialTime).' faster';
             }
             $trialVal = $trial->getValue();
             $trialException = $trial->getException();
@@ -115,6 +116,7 @@ trait DoesScience
 
     /** method stub for boilerplate method above
      * @param $var
+     *
      * @return
      */
     private function controlMethod($var)
@@ -124,6 +126,7 @@ trait DoesScience
 
     /** method stub for boilerplate method above
      * @param $var
+     *
      * @return
      */
     private function trialMethod($var)
